@@ -7,7 +7,7 @@ import { FaSpinner } from "react-icons/fa";
 
 const ApplyButton = ({ jobId }: { jobId: string }) => {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { data: session } = useSession();
   const [errorMessage, setErrorMessage] = useState("");
   const [applicationStatus, setApplicationStatus] = useState<
     "idle" | "success" | "error"
