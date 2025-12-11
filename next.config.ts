@@ -1,6 +1,8 @@
+import { join } from "path";
+
 const nextConfig = {
   turbopack: {
-    root: "./", // points to your project folder
+    root: join(__dirname), // makes it absolute
   },
 };
 
