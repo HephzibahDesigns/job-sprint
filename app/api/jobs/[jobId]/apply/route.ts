@@ -46,13 +46,14 @@ export async function POST(
     });
 
     return NextResponse.json(application);
-  } catch (error) {
+  } catch (err) {
+    console.error(err);
     return new NextResponse("Internal Server Error", { status: 500 });
   }
 }
 
 // get jobs stored in prisma
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const jobs = await prisma.job.findMany({
       orderBy: {

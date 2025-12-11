@@ -19,6 +19,10 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off", // optional: allow require in legacy files
+      "react/no-unescaped-entities": "off", // ✅ Allow normal apostrophes
+    },
   },
 ];
 

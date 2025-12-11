@@ -27,7 +27,7 @@ export async function POST(request: Request) {
 }
 
 // get jobs stored in prisma
-export async function GET(request: Request) {
+export async function GET() {
   try {
     const jobs = await prisma.job.findMany({
       orderBy: {
