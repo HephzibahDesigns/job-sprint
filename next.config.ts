@@ -1,8 +1,6 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true, // ✅ ignore ESLint errors during production builds
+    ignoreDuringBuilds: true, // ✅ ignore ESLint errors on Vercel builds
   },
 };
 
