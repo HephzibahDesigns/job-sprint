@@ -1,6 +1,6 @@
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true, // ✅ ignore ESLint errors on Vercel builds
+  turbopack: {
+    root: "./", // points to your project folder
   },
 };
 

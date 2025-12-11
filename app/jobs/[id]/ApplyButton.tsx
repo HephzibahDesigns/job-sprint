@@ -17,7 +17,7 @@ const ApplyButton = ({ jobId }: { jobId: string }) => {
 
   const handleApply = async () => {
     if (!session) {
-      router.push("/auth/signin");
+      router.push("/signin");
       return;
     }
     setIsLoading(true);

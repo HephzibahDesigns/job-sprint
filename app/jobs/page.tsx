@@ -7,7 +7,7 @@ const JobsPage = async ({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) => {
-  const { search, type, location } = searchParams;
+  const { search, type, location } = await searchParams;
 
   const normalSearch = search as string | undefined;
   const searchType = type as string | undefined;

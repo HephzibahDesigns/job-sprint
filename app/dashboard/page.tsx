@@ -8,7 +8,7 @@ const Dashboard = async () => {
   const session = await auth();
 
   if (!session?.user?.id) {
-    redirect("/auth/signin");
+    redirect("/signin");
   }
 
   const [applications, postedJobs] = await Promise.all([
