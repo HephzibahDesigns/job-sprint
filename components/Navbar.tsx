@@ -5,10 +5,18 @@ import Link from "next/link";
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoClose } from "react-icons/io5";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  // function to apply active styles
+  const isActive = (path: string) =>
+    pathname === path
+      ? "text-blue-600 font-semibold"
+      : "text-gray-600 font-semibold";
 
   return (
     <nav className="bg-white shadow-sm">
@@ -33,7 +41,9 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link
               href="/jobs"
-              className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium"
+              className={`${isActive(
+                "/jobs"
+              )} hover:text-gray-900 px-3 py-2 text-[16px] font-medium`}
             >
               Browse Jobs
             </Link>
@@ -42,19 +52,23 @@ const Navbar = () => {
               <>
                 <Link
                   href="/jobs/posts"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium"
+                  className={`${isActive(
+                    "/jobs/posts"
+                  )} hover:text-gray-900 px-3 py-2 text-[16px] font-medium`}
                 >
                   Post A Job
                 </Link>
                 <Link
                   href="/dashboard"
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium"
+                  className={`${isActive(
+                    "/dashboard"
+                  )} hover:text-gray-900 px-3 py-2 text-[16px] font-medium`}
                 >
                   Dashboard
                 </Link>
                 <button
                   onClick={() => signOut({ callbackUrl: "/" })}
-                  className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium"
+                  className=" hover:text-white text-[16px] font-medium bg-indigo-600 inline-flex items-center px-3 py-2 rounded-md text-white"
                 >
                   Sign Out
                 </button>
@@ -62,7 +76,9 @@ const Navbar = () => {
             ) : (
               <Link
                 href="/signin"
-                className="text-gray-600 hover:text-gray-900 px-3 py-2 text-sm font-medium"
+                className={`${isActive(
+                  "/signin"
+                )} hover:text-white text-[16px] font-medium bg-indigo-600 inline-flex items-center px-3 py-2 rounded-md text-white`}
               >
                 Sign In
               </Link>
@@ -84,7 +100,9 @@ const Navbar = () => {
         <div className="md:hidden px-4 pb-4 space-y-3">
           <Link
             href="/jobs"
-            className="block text-gray-600 hover:text-gray-900 text-base font-medium"
+            className={`block ${isActive(
+              "/jobs"
+            )} hover:text-gray-900 text-[16px] font-medium`}
           >
             Browse Jobs
           </Link>
@@ -93,19 +111,23 @@ const Navbar = () => {
             <>
               <Link
                 href="/jobs/posts"
-                className="block text-gray-600 hover:text-gray-900 text-base font-medium"
+                className={`block ${isActive(
+                  "/jobs/posts"
+                )} hover:text-gray-900 text-[16px] font-medium`}
               >
                 Post A Job
               </Link>
               <Link
                 href="/dashboard"
-                className="block text-gray-600 hover:text-gray-900 text-base font-medium"
+                className={`block ${isActive(
+                  "/dashboard"
+                )} hover:text-gray-900 text-[16px] font-medium`}
               >
                 Dashboard
               </Link>
               <button
                 onClick={() => signOut({ callbackUrl: "/" })}
-                className="block w-full text-left text-gray-600 hover:text-gray-900 text-base font-medium"
+                className="block w-full text-left text-gray-600 hover:text-gray-900 text-[16px] font-medium"
               >
                 Sign Out
               </button>
@@ -113,7 +135,9 @@ const Navbar = () => {
           ) : (
             <Link
               href="/signin"
-              className="block text-gray-600 hover:text-gray-900 text-base font-medium"
+              className={`${isActive(
+                "/signin"
+              )} hover:text-white text-[16px] font-medium bg-indigo-600 inline-flex items-center px-3 py-2 rounded-md text-white`}
             >
               Sign In
             </Link>
