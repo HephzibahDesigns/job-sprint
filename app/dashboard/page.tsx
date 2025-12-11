@@ -57,7 +57,7 @@ const Dashboard = async () => {
           <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold text-gray-900">Posted Jobs</h2>
             <Link
-              href="/jobs/post"
+              href="/jobs/posts"
               className="text-indigo-600 hover:text-indigo-700 font-medium"
             >
               Post New Job
