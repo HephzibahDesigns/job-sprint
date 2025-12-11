@@ -36,7 +36,8 @@ yarn-error.log*
 # vercel
 .vercel
 
-app/generated/
+# Generated / legacy
+app/generated/**
 
 
 # typescript
